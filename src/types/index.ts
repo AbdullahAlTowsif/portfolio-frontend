@@ -28,7 +28,7 @@ export interface IProject {
     id: number;
     title: string;
     description: string;
-    techstack: string[];
+    techStack: string[];
     category: string;
     githubLink: string;
     liveLink: string;
