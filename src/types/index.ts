@@ -9,6 +9,7 @@ export interface IBlog {
   authorId: number;
   author: {
     name: string;
+    picture: string;
   }
 }
 
