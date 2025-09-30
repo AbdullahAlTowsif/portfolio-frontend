@@ -2,7 +2,8 @@
 
 import { IProject } from "@/types";
 import Image from "next/image";
-import { Github, ExternalLink, Calendar, Layers } from "lucide-react";
+import Link from "next/link";
+import { Github, ExternalLink, Calendar, Layers, Eye } from "lucide-react";
 
 export default function ProjectCard({ project }: { project: IProject }) {
 
@@ -45,24 +46,35 @@ export default function ProjectCard({ project }: { project: IProject }) {
           ))}
         </div>
 
-        {/* Links */}
-        <div className="flex items-center gap-4 mt-auto">
-          <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"
+        {/* Links & Details Link */}
+        <div className="flex items-center justify-between mt-auto">
+          <div className="flex items-center gap-4">
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Github className="w-4 h-4" /> GitHub
+            </a>
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" /> Live
+            </a>
+          </div>
+          
+          {/* Details Link */}
+          <Link
+            href={`/projects/${project.id}`}
+            className="flex items-center gap-1 text-sm text-primary hover:text-primary/80 transition-colors font-medium px-3 py-2 border border-primary/20 rounded-md hover:bg-primary/5"
           >
-            <Github className="w-4 h-4" /> GitHub
-          </a>
-          <a
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"
-          >
-            <ExternalLink className="w-4 h-4" /> Live
-          </a>
+            <Eye className="w-4 h-4" />
+            Details
+          </Link>
         </div>
 
         {/* Meta */}

@@ -30,6 +30,7 @@ export interface IProject {
     description: string;
     techStack: string[];
     category: string;
+    features: string;
     githubLink: string;
     liveLink: string;
     thumbnail: string;
