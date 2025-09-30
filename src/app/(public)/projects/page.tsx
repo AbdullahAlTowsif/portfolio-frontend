@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 const AllProjectPage = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`, {
         next: {
-            revalidate: 30
+            // revalidate: 30
+            tags: ["PROJECT"]
         },
     });
     const { data: projects } = await res.json();

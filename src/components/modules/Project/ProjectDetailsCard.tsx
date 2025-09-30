@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Github, ExternalLink, Calendar, Layers } from "lucide-react";
 
 export default function ProjectDetailsCard({ project }: { project: IProject }) {
+  console.log(project.features);
   if (!project) {
     return (
       <div className="py-20 text-center text-gray-500">Project not found.</div>
@@ -36,8 +37,8 @@ export default function ProjectDetailsCard({ project }: { project: IProject }) {
         <div className="mb-6">
           <h2 className="text-xl font-semibold mb-2">Key Features</h2>
           <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
-            {project.features.split(",").map((feature, index) => (
-              <li key={index}>{feature.trim()}</li>
+            {project?.features?.map((feature, index) => (
+              <li key={index}>{feature}</li>
             ))}
           </ul>
         </div>
