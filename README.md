@@ -22,12 +22,14 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+// creates static html file in built time: no loading state
+// cache: "force-cache",
+// ISR: updates the data in every 30s + no loading state
+// next: {
+//     revalidate: 30
+// },
+// SSR: loading state exists
+// cache: "no-store"
 
 ## Deploy on Vercel
 
