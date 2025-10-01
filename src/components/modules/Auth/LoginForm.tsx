@@ -23,12 +23,30 @@ export default function LoginForm() {
         },
     });
 
+    // const onSubmit = async (values: FieldValues) => {
+    //     try {
+    //         signIn("credentials", {
+    //             ...values,
+    //             callbackUrl: "/dashboard",
+    //         });
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
+
     const onSubmit = async (values: FieldValues) => {
         try {
-            signIn("credentials", {
+            const result = await signIn("credentials", {
                 ...values,
-                callbackUrl: "/", // will change it to dashboard
+                redirect: false,
             });
+
+            if (result?.error) {
+                // show toast
+                console.error("Login failed:", result.error);
+            } else if (result?.ok) {
+                window.location.href = "/dashboard";
+            }
         } catch (err) {
             console.error(err);
         }

@@ -9,6 +9,7 @@ export const updateBlog = async (data: FormData) => {
     console.log("blogid from update.ts", blogId);
     const blogInfo = Object.fromEntries(data.entries())
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id, ...updateData } = blogInfo;
 
     const modifiedData = {
@@ -37,6 +38,7 @@ export const updateProject = async (data: FormData) => {
     const projectId = data.get('id') as string;
     console.log("project from update.ts", projectId);
     const projectInfo = Object.fromEntries(data.entries())
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id, ...updateData } = projectInfo;
     const modifiedData = {
         ...updateData,
