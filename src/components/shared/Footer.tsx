@@ -49,7 +49,7 @@ export default function Footer() {
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link
-              href="https://twitter.com/yourusername"
+              href="https://x.com/towsif635?t=QVnz53_n4hhwtr1Cki9-Fw&s=09"
               target="_blank"
               className="hover:text-primary"
             >

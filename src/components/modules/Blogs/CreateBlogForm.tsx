@@ -22,6 +22,7 @@ export default function CreateBlogForm() {
                     type="text"
                     id="title"
                     name="title"
+                    required
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
             </div>
@@ -35,6 +36,7 @@ export default function CreateBlogForm() {
                     id="content"
                     name="content"
                     rows={4}
+                    required
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
             </div>
@@ -48,6 +50,7 @@ export default function CreateBlogForm() {
                     type="url"
                     id="picture"
                     name="picture"
+                    required
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
             </div>

@@ -22,6 +22,7 @@ export default function CreateProjectForm() {
                     type="text"
                     id="title"
                     name="title"
+                    required
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
             </div>
@@ -35,6 +36,7 @@ export default function CreateProjectForm() {
                     id="description"
                     name="description"
                     rows={4}
+                    required
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
             </div>
@@ -49,6 +51,7 @@ export default function CreateProjectForm() {
                     type="text"
                     id="techStack"
                     name="techStack"
+                    required
                     placeholder="Next.js, React, Web Development"
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
@@ -64,6 +67,7 @@ export default function CreateProjectForm() {
                     type="text"
                     id="category"
                     name="category"
+                    required
                     placeholder="Full Stack | MERN Stack"
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
@@ -79,6 +83,7 @@ export default function CreateProjectForm() {
                     type="text"
                     id="features"
                     name="features"
+                    required
                     placeholder="feature1, feature2, feature3, ..."
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
@@ -94,6 +99,7 @@ export default function CreateProjectForm() {
                     type="url"
                     id="githubLink"
                     name="githubLink"
+                    required
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
             </div>
@@ -108,6 +114,7 @@ export default function CreateProjectForm() {
                     type="url"
                     id="liveLink"
                     name="liveLink"
+                    required
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
             </div>
@@ -122,6 +129,7 @@ export default function CreateProjectForm() {
                     type="url"
                     id="thumbnail"
                     name="thumbnail"
+                    required
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
                 />
             </div>
