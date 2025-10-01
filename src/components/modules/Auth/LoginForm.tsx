@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,10 +15,23 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
 
+const loginSchema = z.object({
+    email: z.string().min(1, "Email is required").email("Invalid email address"),
+    password: z
+        .string()
+        .min(8, "Password must be at least 8 characters")
+        .refine((val) => val === "12345678", {
+            message: "Password mismatch! Please enter the correct password.",
+        }),
+});
+
+type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function LoginForm() {
-    const form = useForm<FieldValues>({
+    const form = useForm<LoginFormValues>({
+        resolver: zodResolver(loginSchema),
         defaultValues: {
             email: "",
             password: "",
@@ -34,7 +49,7 @@ export default function LoginForm() {
     //     }
     // };
 
-    const onSubmit = async (values: FieldValues) => {
+    const onSubmit = async (values: LoginFormValues) => {
         try {
             const result = await signIn("credentials", {
                 ...values,
@@ -42,9 +57,11 @@ export default function LoginForm() {
             });
 
             if (result?.error) {
-                // show toast
+                toast.error(result.error);
                 console.error("Login failed:", result.error);
+                form.setError("email", { message: "Invalid credentials" });
             } else if (result?.ok) {
+                toast.success("Login Successful");
                 window.location.href = "/dashboard";
             }
         } catch (err) {
@@ -111,7 +128,6 @@ export default function LoginForm() {
                         </div>
                     </form>
                 </Form>
-
             </div>
         </div>
     );

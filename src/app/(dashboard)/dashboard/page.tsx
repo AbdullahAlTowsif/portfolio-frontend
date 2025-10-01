@@ -1,7 +1,7 @@
 import { getUserSession } from "@/helpers/getUserSession";
 
 export default async function DashboardHome() {
-  const quote = "The secret of getting ahead is getting started. – Mark Twain";
+  const quote = "Your portfolio is your silent ambassador—make sure it speaks with clarity, confidence, and character.";
 
   const session = await getUserSession();
   console.log(session);
