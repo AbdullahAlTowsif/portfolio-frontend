@@ -108,7 +108,7 @@ const ManageProjectPage = () => {
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link
-                                                        href={`/dashboard/update-blog/${project.id}`}
+                                                        href={`/dashboard/update-project/${project.id}`}
                                                         aria-label={`Update blog ${project.id}`}
                                                     >
                                                         <Button

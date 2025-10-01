@@ -34,14 +34,18 @@ export const updateBlog = async (data: FormData) => {
 
 
 export const updateProject = async (data: FormData) => {
+    const projectId = data.get('id') as string;
+    console.log("project from update.ts", projectId);
     const projectInfo = Object.fromEntries(data.entries())
+    const { id, ...updateData } = projectInfo;
     const modifiedData = {
-        ...projectInfo,
-        techStack: projectInfo.techStack.toString().split(",").map(tech => tech.trim()),
-        features: projectInfo.features.toString().split(",").map(feature => feature.trim()),
+        ...updateData,
+        techStack: updateData.techStack.toString().split(",").map(tech => tech.trim()),
+        features: updateData.features.toString().split(",").map(feature => feature.trim()),
     }
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`, {
-        method: "POST",
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project/${projectId}`, {
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
