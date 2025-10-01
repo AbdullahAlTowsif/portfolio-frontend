@@ -113,7 +113,7 @@ const ManageBlogPage = () => {
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link
-                                                        href={`/blogs/update/${blog.id}`}
+                                                        href={`/dashboard/update-blog/${blog.id}`}
                                                         aria-label={`Update blog ${blog.id}`}
                                                     >
                                                         <Button
